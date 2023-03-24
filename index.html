@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Management System</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+
+        function Calculate() {
+
+            const sub1 = parseInt(document.getElementById('eng').value);
+            const sub2 = parseInt(document.getElementById('phy').value);
+            const sub3 = parseInt(document.getElementById('math').value);
+            const sub4 = parseInt(document.getElementById('chem').value);
+            const sub5 = parseInt(document.getElementById('comp').value);
+
+            if (0 > sub1 > 100 || 0 > sub2 > 100 || 0 > sub3 > 100 || 0 > sub4 > 100 || 0 > sub5 > 100) {
+                alert("Enter value between 0-100")
+            } else {
+                let total = sub1 + sub2 + sub3 + sub4 + sub5;
+
+
+                let Average = total / 5;
+
+
+                let percent = parseFloat((total / 500) * 100);
+                console.log(percent)
+                // let grade ="";
+                if (percent >= 90) {
+                    document.getElementById("Grade").innerHTML = "Grade : " + "A";
+                } else if (80 <= percent <= 89) {
+                    document.getElementById("Grade").innerHTML = "Grade : " + "B";
+                } else if (70 <= percent <= 79) {
+                    document.getElementById("Grade").innerHTML = "Grade : " + "C";
+                } else if (60 <= percent <= 69) {
+                    document.getElementById("Grade").innerHTML = "Grade : " + "D";
+                } else if (percent <= 60) {
+                    document.getElementById("Grade").innerHTML = "Grade : " + "F (you have failed in exam)";
+                }
+                document.getElementById("total").innerHTML = "Total marks: " + total;
+                document.getElementById("Avg").innerHTML = "Average marks: " + Average;
+                // document.getElementById("Grade").innerHTML = "Grade : " + grade;
+
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1 id="head">GRADE MANAGEMENT SYSTEM</h1>
+    <div class="main">
+
+        <div id="heading">
+            <h1>Grading System In JS</h1>
+        </div>
+        <label>English</label><input type="number" id="eng"><br />
+        <label>Physics</label><input type="number" id="phy"><br />
+        <label>Maths</label><input type="number" id="math"><br />
+        <label>Chemistry</label><input type="number" id="chem"><br />
+        <label>Computer</label><input type="number" id="comp"><br />
+        <button id="btn" onclick="Calculate()">Calculate Grade</button>
+    </div>
+
+    <div class="results">
+        <div id="totalhead">
+            <h1>Total</h1>
+        </div>
+        <div id="total"></div>
+
+        <div id="Avghead">
+            <h1>Average</h1>
+        </div>
+        <div id="Avg"></div>
+
+        <div id="Gradehead">
+            <h1>Grade</h1>
+        </div>
+        <div id="Grade"></div>
+    </div>
+
+</body>
+
+</html>
